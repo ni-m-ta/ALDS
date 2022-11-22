@@ -1,0 +1,15 @@
+Insert Sort 
+一インデックスずつ範囲を拡大しつつ、次のインデックスの数字がどこに入るか決める
+
+Bubble Sort
+未ソート部分において最小の数を後ろから探しだし、前のインデックスの数字と入れ替わりつつ未ソート部分の先頭に持ってくる
+def BubbleSort(c,n):
+    for i in range(n):
+        for j in range(1,n):
+            if c[n-j] < c[n-j-1]: *c[n]はout of range
+                temp = c[n-j]
+                c[n-j] = c[n-j-1]
+                c[n-j-1] = temp
+
+Selection Sort
+未ソート部分において最小の数となるインデックスを探しだし、未ソート部分の先頭と交換する
