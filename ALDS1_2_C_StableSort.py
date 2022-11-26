@@ -1,13 +1,6 @@
 n = int(input())
-cards = list(map(str,input().split()))
-stabilities = []
-def CheckStability(c,n,s):
-    for i in range(n):
-        for j in range(n):
-            if int(c[i][1]) == int(c[j][1]):
-                s.append([i,j])
-
-
+cards_B = list(map(str,input().split()))
+cards_S = cards_B[::1]
 
 def BubbleSort(c,n):
     for i in range(n):
@@ -16,14 +9,33 @@ def BubbleSort(c,n):
                 temp = c[n-j]
                 c[n-j] = c[n-j-1]
                 c[n-j-1] = temp
-            if int(c[n-j][1]) == int(c[n-j-1][1]):
 
+def SelectionSort(c,n):
+    for i in range(n):
+        minj = i
+        for j in range(i,n):
+            if int(c[j][1]) < int(c[minj][1]):
+                minj = j
+        temp = c[minj]
+        c[minj] = c[i]
+        c[i] = temp
 
-CheckStability(cards,n,stabilities)
-BubbleSort(cards,n)
+BubbleSort(cards_B,n)
+SelectionSort(cards_S,n)
 
 for i in range(n):
     if i == n-1:
-        print(cards[i])
+        print(cards_B[i])
     else:
-        print(cards[i],end=' ')
+        print(cards_B[i],end=' ')
+print('Stable')
+
+for i in range(n):
+    if i == n-1:
+        print(cards_S[i])
+    else:
+        print(cards_S[i],end=' ')
+if cards_B == cards_S:
+    print('Stable')
+else:
+    print('Not stable')
