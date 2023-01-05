@@ -1,23 +1,21 @@
-import sys
-input = sys.stdin.readline
-
-anses = []
+def solve(i,m,n,lists):
+    if m==0:
+        return True
+    if i>=n:
+        return False
+    res = solve(i+1,m,n,lists) or solve(i+1,m-lists[i],n,lists) #boolean
+    return res
 
 n = int(input())
-a = list(map(int,input().split())).sort
+a = list(map(int,input().split()))
 q = int(input())
 m = list(map(int,input().split()))
-al = []
-
-for j
-    for i in range(2**n): 
-
 
 for i in range(q):
-    y = m[i]
-    x = 0
+    j = 0
+    if solve(j,m[i],n,a):
+        print('yes')
+    else:
+        print('no')
 
-    ans = 'no'
-    while 
-    print(ans)
 
